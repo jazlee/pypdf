@@ -501,7 +501,7 @@ class PdfDocCommon:
                 if CA.DESTS in names:
                     tree = cast(TreeObject, names[CA.DESTS])
 
-        if tree is None:
+        if is_null_or_none(tree):
             return retval
 
         if PA.KIDS in tree:
@@ -583,7 +583,7 @@ class PdfDocCommon:
                 tree = cast(Optional[TreeObject], catalog[CD.ACRO_FORM])
             else:
                 return None
-        if tree is None:
+        if is_null_or_none(tree):
             return retval
         assert stack is not None
         if "/Fields" in tree:
